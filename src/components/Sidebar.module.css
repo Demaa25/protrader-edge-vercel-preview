@@ -1,0 +1,206 @@
+/* src/components/Sidebar.module.css */
+.sidebar {
+  width: 260px;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  flex-shrink: 0;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  padding: 18px 16px;
+}
+
+/* THEMES */
+
+.dark {
+  background: radial-gradient(1200px 600px at 0% 0%, #23324a 0%, #141b27 60%, #101624 100%);
+  color: #e8eefc;
+}
+
+.light {
+  background: #f7f9fc;
+  color: #0f172a;
+}
+
+/* BRAND */
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  margin-bottom: 14px;
+}
+
+.logoImg {
+  border-radius: 6px;
+}
+
+.brandText {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.brandAccent {
+  color: #c6a437;
+}
+
+/* SCROLLABLE AREA */
+
+.navScroll {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 4px;
+
+  /* Firefox Hide scrollbar */
+  scrollbar-width: none;
+  scrollbar-color: rgba(255,255,255,.18) transparent;
+}
+
+/* Chrome, Edge, Safari */
+.navScroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.navScroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.navScroll::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,.18);
+  border-radius: 20px;
+}
+
+.navScroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(255,255,255,.28);
+}
+
+/* remove arrows */
+.navScroll::-webkit-scrollbar-button {
+  display: none;
+  height: 0;
+  width: 0;
+}
+
+/* NAV */
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.link {
+  padding: 10px 12px;
+  border-radius: 10px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  background: rgba(255,255,255,.04);
+}
+
+.link:hover {
+  background: rgba(255,255,255,.08);
+}
+
+.active {
+  background: rgba(31,94,255,.35);
+}
+
+.iconWrap {
+  width: 20px;
+  display: flex;
+}
+
+.linkText {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* BOTTOM */
+
+.bottomBlock {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* USER */
+
+.userBox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255,255,255,.1);
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #2a6bff;
+}
+
+/* LOGOUT */
+
+.logout {
+  background: rgba(255,255,255,.04);
+  border: none;
+  color: inherit;
+  padding: 10px 12px;
+  border-radius: 10px;
+  display: flex;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.logout:hover {
+  background: rgba(255,255,255,.08);
+}
+
+/* THEME SWITCH */
+
+.themeSwitch {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.switchTrack {
+  width: 42px;
+  height: 20px;
+  background: #1f5eff;
+  border-radius: 20px;
+  position: relative;
+  transition: .25s;
+}
+
+.switchThumb {
+  width: 16px;
+  height: 16px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: .25s;
+}
+
+.switchDark .switchThumb {
+  left: 24px;
+}
+
+.divider {
+  height: 1px;
+  background: rgba(255,255,255,.1);
+  margin: 8px 0;
+}

@@ -1,0 +1,136 @@
+/* src/app/(lms)/enroll/[courseId]/enroll.module.css */
+.shell {
+  display: flex;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1;
+  padding: 32px;
+}
+
+.header {
+  margin-bottom: 24px;
+}
+
+.h1 {
+  margin: 0 0 8px;
+  font-size: 36px;
+  font-weight: 900;
+}
+
+.p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.card {
+  max-width: 850px;
+
+  background: white;
+
+  border: 1px solid var(--border);
+
+  border-radius: 20px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 12px 40px
+    rgba(0,0,0,.06);
+}
+
+.thumbnail {
+  width: 100%;
+
+  height: 320px;
+
+  object-fit: cover;
+
+  display: block;
+}
+
+.courseInfo {
+  padding: 24px;
+}
+
+.courseInfo h2 {
+  margin: 0;
+
+  font-size: 28px;
+
+  font-weight: 800;
+}
+
+.price {
+  margin-top: 12px;
+
+  font-size: 42px;
+
+  font-weight: 900;
+
+  color: #0f172a;
+}
+
+.description {
+  margin-top: 16px;
+
+  line-height: 1.7;
+
+  color: #64748b;
+}
+
+.payBtn {
+  margin: 0 24px 24px;
+
+  height: 58px;
+
+  width: calc(100% - 48px);
+
+  border: none;
+
+  border-radius: 14px;
+
+  background: #2563eb;
+
+  color: white;
+
+  font-size: 16px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+}
+
+.payBtn:hover {
+  background: #1d4ed8;
+}
+
+.note {
+  text-align: center;
+
+  padding-bottom: 24px;
+
+  color: #64748b;
+
+  font-size: 13px;
+}
+
+@media (max-width: 768px) {
+  .main {
+    padding: 18px;
+  }
+
+  .thumbnail {
+    height: 220px;
+  }
+
+  .price {
+    font-size: 32px;
+  }
+}

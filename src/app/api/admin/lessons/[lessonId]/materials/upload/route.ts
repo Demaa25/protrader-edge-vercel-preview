@@ -1,0 +1,57 @@
+// src/app/api/admin/lessons/[lessonId]/materials/upload/route.ts
+import { NextResponse } from "next/server";
+import { prisma } from "@/lib/prisma";
+import { getSession } from "@/lib/session";
+import { LessonMaterialType } from "@prisma/client";
+import { putPrivateBlob } from "@/lib/blob";
+
+export async function POST(req: Request, ctx: { params: Promise<{ lessonId: string }> }) {
+  const { lessonId } = await ctx.params;
+
+  const session = await getSession();
+  if (!session?.user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  
+  const role = (session.user as any)?.role as string | undefined;
+  if (role !== "ADMIN") return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+
+  const form = await req.formData();
+  const file = form.get("file");
+  const title = String(form.get("title") ?? "").trim();
+
+  if (!title) return NextResponse.json({ error: "title is required" }, { status: 400 });
+  if (!(file instanceof File)) return NextResponse.json({ error: "file is required" }, { status: 400 });
+
+  // Basic validation
+  if (file.type !== "application/pdf") {
+    return NextResponse.json({ error: "Only PDF files are allowed" }, { status: 400 });
+  }
+
+  const uploaded = await putPrivateBlob(`lesson-materials/${lessonId}`, file);
+  const reference = Buffer.from(uploaded.pathname).toString("base64url");
+
+  // Put new items at end
+  const last = await prisma.lessonMaterial.findFirst({
+    where: { lessonId },
+    orderBy: { order: "desc" },
+    select: { order: true },
+  });
+
+  // Store a protected URL (NOT /public)
+  const url = `/api/lms/materials/pdf/${lessonId}/${reference}`;
+
+  const created = await prisma.lessonMaterial.create({
+    data: {
+      lessonId,
+      type: LessonMaterialType.DOCUMENT,
+      title,
+      url,
+      order: (last?.order ?? 0) + 1,
+      fileName: file.name,
+      mimeType: file.type,
+      sizeBytes: file.size,
+    },
+    select: { id: true, type: true, title: true, url: true, order: true },
+  });
+
+  return NextResponse.json({ material: created }, { status: 201 });
+}
