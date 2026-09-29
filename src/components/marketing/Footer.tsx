@@ -1,14 +1,58 @@
 import Link from "next/link";
+import { FaFacebookF, FaInstagram, FaLinkedinIn, FaXTwitter, FaYoutube } from 'react-icons/fa6';
 import styles from "./Footer.module.css";
 
 export default function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.inner}>
-        <div className={styles.topRow}>
-          <div className={styles.brandBlock}>
-            <div className={styles.brandTitle}>ProTrader Edge Limited</div>
-            <div className={styles.brandSubtitle}>Institutional Trading Education &amp; Technology</div>
+        {/* Top strip: Follow + Newsletter */}
+        <div className={styles.topStrip}>
+          <div className={styles.container}>
+            <div className={styles.follow}>
+              <span className={styles.followLabel}>Follow Us</span>
+
+              <div className={styles.socials} aria-label="Social media links">
+                {/* Replace hrefs with your real social links later */}
+                <a className={styles.socialBtn} href="#" aria-label="Facebook">
+                  <FaFacebookF />
+                </a>
+                <a className={styles.socialBtn} href="#" aria-label="Instagram">
+                  <FaInstagram />
+                </a>
+                <a className={styles.socialBtn} href="#" aria-label="LinkedIn">
+                  <FaLinkedinIn />
+                </a>
+                <a className={styles.socialBtn} href="#" aria-label="X (Twitter)">
+                  <FaXTwitter />
+                </a>
+                <a className={styles.socialBtn} href="#" aria-label="YouTube">
+                  <FaYoutube />
+                </a>
+              </div>
+            </div>
+
+            <div className={styles.newsletter}>
+              <span className={styles.newsletterLabel}>
+                Subscribe To Our <span className={styles.gold}>Newsletter</span>
+              </span>
+
+              <form
+                className={styles.newsletterForm}
+              >
+                <input
+                  type="email"
+                  required
+                  placeholder="Enter your email"
+                  className={styles.newsletterInput}
+                  aria-label="Email address"
+                />
+
+                <button type="submit" className={styles.subscribeBtn}>
+                  Subscribe
+                </button>
+              </form>
+            </div>
           </div>
         </div>
 

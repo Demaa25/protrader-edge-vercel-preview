@@ -13,28 +13,112 @@
 .inner {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2.25rem 1rem 1.25rem;
+  padding: 0rem 1rem 1.25rem;
 }
 
-.topRow {
+/* Top strip */
+.topStrip {
+  border-top: 1px solid rgba(248, 250, 252, 0.08);
+  border-bottom: 1px solid rgba(248, 250, 252, 0.08);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 18px 18px;
+}
+
+.topStrip .container {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: flex-start;
-  gap: 1rem;
-  padding-bottom: 1.25rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  gap: 22px;
+  flex-wrap: wrap;
 }
 
-.brandTitle {
+.follow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.followLabel {
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  opacity: 0.92;
+}
+
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.socialBtn {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  border: 1px solid rgba(201, 162, 74, 0.45);
+  color: rgba(201, 162, 74, 0.95);
+  background: rgba(2, 6, 23, 0.25);
+  text-decoration: none;
+}
+
+.socialBtn:hover {
+  background: rgba(201, 162, 74, 0.14);
+}
+
+.newsletter {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.newsletterLabel {
+  font-weight: 700;
+  opacity: 0.92;
+}
+
+.gold {
+  color: var(--gold);
+}
+
+.newsletterForm {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.newsletterInput {
+  width: 260px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(248, 250, 252, 0.16);
+  background: rgba(2, 6, 23, 0.25);
+  color: rgba(248, 250, 252, 0.95);
+  outline: none;
+}
+
+.newsletterInput::placeholder {
+  color: rgba(248, 250, 252, 0.55);
+}
+
+.subscribeBtn {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: var(--gold);
+  color: #0f172a;
   font-weight: 800;
-  color: var(--white);
-  letter-spacing: -0.01em;
+  cursor: pointer;
 }
 
-.brandSubtitle {
-  margin-top: 0.4rem;
-  font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.72);
+.subscribeBtn:hover {
+  filter: brightness(0.98);
 }
 
 .grid {
