@@ -127,9 +127,9 @@ export default async function LessonVideoPage({
           </h1>
 
           <p className={styles.sub}>
-            Watch the lesson carefully
-            before proceeding to the
-            knowledge check.
+            Watch the lesson carefully,
+            then return to the lesson
+            materials when you are ready.
           </p>
         </div>
 
@@ -181,13 +181,6 @@ export default async function LessonVideoPage({
             ← Back to Lesson
           </a>
 
-          <a
-            href={`/knowledge-check/${lesson.id}`}
-            className={styles.primary}
-          >
-            Continue to Knowledge Check
-            →
-          </a>
         </div>
       </main>
     </div>

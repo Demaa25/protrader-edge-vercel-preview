@@ -22,14 +22,6 @@ export async function GET(
       include: {
         module: true,
 
-        application: true,
-
-        evaluations: {
-          where: {
-            type:
-              "KNOWLEDGE_CHECK",
-          },
-        },
       },
     });
 
@@ -58,13 +50,5 @@ export async function GET(
 
       order: lesson.module.order,
     },
-
-    application:
-      lesson.application ??
-      null,
-
-    knowledgeCheck:
-      lesson.evaluations?.[0] ??
-      null,
   });
 }

@@ -281,30 +281,6 @@
   padding: 24px 28px;
 }
 
-/* APPLICATION BUILDER */
-
-.focusBox {
-  border: 1px solid rgba(16,24,40,0.10);
-  border-radius: 12px;
-  padding: 12px;
-  background: rgba(255,255,255,0.7);
-  display: grid;
-  gap: 10px;
-}
-
-.focusHead {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-weight: 800;
-}
-
-.focusRow {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 10px;
-}
-
 /* SIDEBAR */
 
 .builderSidebar {

@@ -168,6 +168,46 @@
   }
 }
 @media (max-width: 560px) {
+  .topStrip .container {
+    align-items: stretch;
+    gap: 18px;
+    padding: 16px;
+  }
+
+  .follow,
+  .newsletter {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .newsletter {
+    width: 100%;
+  }
+
+  .socials,
+  .newsletterForm {
+    width: 100%;
+  }
+
+  .socials {
+    justify-content: space-between;
+  }
+
+  .newsletterForm {
+    gap: 8px;
+  }
+
+  .newsletterInput {
+    width: auto;
+    min-width: 0;
+    flex: 1;
+  }
+
+  .subscribeBtn {
+    flex: 0 0 auto;
+  }
+
   .grid {
     grid-template-columns: 1fr;
   }
